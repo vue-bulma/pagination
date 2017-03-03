@@ -31,7 +31,7 @@ export default {
 ```
 ## doc
 
-|  porps    |   required   |   default   |  desc |
+|  props    |   required   |   default   |  desc |
 | ---- | ---- | ---- | ---- |
 |  urlPrefix    |  false    |   '/'   |  urlPrefix for vue-router  |
 |  currentPage   |   true   |      |    |
