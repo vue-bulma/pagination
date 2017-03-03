@@ -15,7 +15,7 @@ $ yarn add vue-bulma-pagination --save
 ```vue
 <template>
   <div>
-    <pagination :urlPrefix='/' :currentPage=2 :pageLength=5 /> 
+    <pagination urlPrefix='/' currentPage=2 pageLength=100 /> 
   </div>
 </template>
 
