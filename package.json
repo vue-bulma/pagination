@@ -1,6 +1,6 @@
 {
   "name": "vue-bulma-pagination",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pagination component for Vue Bulma",
   "main": "src/index.js",
   "peerDependencies": {
@@ -20,8 +20,5 @@
     "pagination"
   ],
   "author": "netpi",
-  "license": "MIT",
-  "dependencies": {
-    "vue-bulma-pagination": "^1.0.0-beta.3"
-  }
+  "license": "MIT"
 }
