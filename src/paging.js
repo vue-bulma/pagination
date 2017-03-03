@@ -7,7 +7,7 @@ export default (current, length, displayLength) => {
   if (start <= 1) {
     start = 2
     end = start + displayLength - 1
-    if (end >= lzength - 1) end = length - 1
+    if (end >= length - 1) end = length - 1
   }
   if (end >= length - 1) {
     end = length - 1

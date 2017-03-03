@@ -1,10 +1,10 @@
 <template>
     <nav class="pagination">
         <router-link :class="getPreClassName()" :to="urlPrefix+'/'+(formatCurrentPage-1)" >Prev</router-link>
-        <router-link :class="getNextClassName()" :to="+urlPrefix+'/'+(formatCurrentPage+1)">Next</router-link>
+        <router-link :class="getNextClassName()" :to="urlPrefix+'/'+(formatCurrentPage+1)">Next</router-link>
         <ul class="pagination-list" >
             <li v-for="item in pagingList" >
-            <router-link v-if="item !== '...'" :class=" getPagingClassName(item) " :to="'/'+urlPrefix+'/'+item">{{item}}</router-link>
+            <router-link v-if="item !== '...'" :class=" getPagingClassName(item) " :to="urlPrefix+'/'+item">{{item}}</router-link>
             <span v-else class="pagination-ellipsis">...</span>
             </li>                
         </ul>
@@ -29,14 +29,7 @@ export default {
         default: 4
     }
   },
-  computed: {
-    pagingList () {
-      return paging(this.currentPage, this.pageLength, 4)
-    },
-    formatCurrentPage () {
-      const currentPage = Number(this.currentPage)
-      return currentPage > 0 ? currentPage : 1
-    },
+  methods: {
     getPagingClassName (item) {
       return this.currentPage !== item ? 'pagination-link' : 'pagination-link is-current'
     },
@@ -45,6 +38,15 @@ export default {
     },
     getNextClassName () {
       return this.currentPage < this.pageLength ? 'pagination-next' : 'pagination-next is-disabled'
+    }
+  },
+  computed: {
+    pagingList () {
+      return paging(this.currentPage, this.pageLength, 4)
+    },
+    formatCurrentPage () {
+      const currentPage = Number(this.currentPage)
+      return currentPage > 0 ? currentPage : 1
     }
   }
 }

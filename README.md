@@ -29,6 +29,14 @@ export default {
 }
 </script>
 ```
+## doc
+
+|  porps    |   required   |   default   |  desc |
+| ---- | ---- | ---- | ---- |
+|  urlPrefix    |  false    |   '/'   |  urlPrefix for vue-router  |
+|  currentPage   |   true   |      |    |
+|  pageLength  |   false   |   4   |  total pageLength  |
+|  displayLength  |   false   |   4   |  how many page number will to display |
 
 
 ## Badges
