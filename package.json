@@ -1,6 +1,6 @@
 {
   "name": "vue-bulma-pagination",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Pagination component for Vue Bulma",
   "main": "src/index.js",
   "peerDependencies": {
