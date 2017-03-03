@@ -7,7 +7,10 @@
     "bulma": ">=0.2",
     "vue": ">=2"
   },
-  "repository": "netpi/vue-bulma-pagination",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/netpi/vue-bulma-pagination"
+  },
   "keywords": [
     "vue",
     "bulma",
@@ -15,6 +18,6 @@
     "vue-bulma-pagination",
     "pagination"
   ],
-  "author": "Netpi",
+  "author": "netpi",
   "license": "MIT"
 }
