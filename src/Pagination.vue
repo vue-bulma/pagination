@@ -1,5 +1,5 @@
 <template>
-    <nav class="pagination">
+    <nav :class="getNavClassName()">
         <router-link :class="getPreClassName()" :to="urlPrefix+'/'+(formatCurrentPage-1)" >Prev</router-link>
         <router-link :class="getNextClassName()" :to="urlPrefix+'/'+(formatCurrentPage+1)">Next</router-link>
         <ul class="pagination-list" >
@@ -15,21 +15,35 @@ import paging from './paging.js'
 export default {
   name: 'vue-bulma-pagination',
   props: {
+    urlPrefix: {
+      type:String,
+      default:'/'
+    },
     currentPage: {
       type: Number,
       default: 1
     },
-    pageLength: Number,
-    urlPrefix: {
-        type:String,
-        default:'/'
-    },
+    pageLength: Number,    
     displayLength: {
-        type: Number,
-        default: 4
+      type: Number,
+      default: 4
+    },
+    modifiers: {
+      type: String,
+      default: ''
     }
   },
   methods: {
+    getNavClassName () {
+      const optional = ['','is-centered','is-right']
+      if( optional.findIndex( item => item == this.modifiers.trim() ) >= 0 ){
+        return 'pagination ' + this.modifiers
+      } else {
+        console.warn(" modifiers %s is not within the options ", this.modifiers, optional,
+        '\n see more detail https://github.com/vue-bulma/vue-bulma-pagination#doc')  
+        return 'pagination'
+      }  
+    },  
     getPagingClassName (item) {
       return this.currentPage !== item ? 'pagination-link' : 'pagination-link is-current'
     },
@@ -42,7 +56,7 @@ export default {
   },
   computed: {
     pagingList () {
-      return paging(this.currentPage, this.pageLength, 4)
+      return paging(this.currentPage, this.pageLength, this.displayLength)
     },
     formatCurrentPage () {
       const currentPage = Number(this.currentPage)

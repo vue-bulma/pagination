@@ -1,6 +1,6 @@
 {
   "name": "vue-bulma-pagination",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Pagination component for Vue Bulma",
   "main": "src/index.js",
   "peerDependencies": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/netpi/vue-bulma-pagination"
+    "url": "https://github.com/vue-bulma/vue-bulma-pagination"
   },
   "keywords": [
     "vue",

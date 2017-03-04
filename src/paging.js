@@ -1,4 +1,4 @@
-module.exports = function(current, length, displayLength) {
+module.exports = function (current, length, displayLength) {
   if (length <= 1) return []
   displayLength = displayLength - 2
   var indexes = [1]

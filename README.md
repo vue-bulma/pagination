@@ -6,7 +6,7 @@ Pagination component for Vue Bulma.
 
 ```sh
 $ npm install vue-bulma-pagination --save
-or
+# or
 $ yarn add vue-bulma-pagination --save
 ```
 
@@ -31,12 +31,13 @@ export default {
 ```
 ## doc
 
-|  props    |   required   |   default   |  desc |
-| ---- | ---- | ---- | ---- |
-|  urlPrefix    |  false    |   '/'   |  urlPrefix for vue-router  |
-|  currentPage   |   true   |      |    |
-|  pageLength  |   false   |   4   |  total pageLength  |
-|  displayLength  |   false   |   4   |  how many page number will to display |
+|  props    |  required   |   default   |  optional    |  desc | 
+| ---- | ---- | ---- | ---- | ---- | ---- |
+|  urlPrefix    |  `false`    |   '/'   |    |  urlPrefix for vue-router  |
+|  currentPage   |   `true`   |  1  |    |    |
+|  pageLength  |   `true`   |    |    | the last page number  |
+|  displayLength  |   `false`   |   4   |    | page number will to be displayed |
+|  modifiers  |  `false`   |   ''   |'','is-centered','is-right' |  |
 
 
 ## Badges
