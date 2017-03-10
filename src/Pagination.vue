@@ -1,10 +1,10 @@
 <template>
     <nav :class="getNavClassName()">
-        <router-link :class="getPreClassName()" :to="urlPrefix+'/'+(formatCurrentPage-1)" >Prev</router-link>
-        <router-link :class="getNextClassName()" :to="urlPrefix+'/'+(formatCurrentPage+1)">Next</router-link>
+        <router-link :class="getPreClassName()" :to="normalize(urlPrefix+'/'+(formatCurrentPage-1))" >Prev</router-link>
+        <router-link :class="getNextClassName()" :to="normalize(urlPrefix+'/'+(formatCurrentPage+1))">Next</router-link>
         <ul class="pagination-list" >
             <li v-for="item in pagingList" >
-            <router-link v-if="item !== '...'" :class=" getPagingClassName(item) " :to="urlPrefix+'/'+item">{{item}}</router-link>
+            <router-link v-if="item !== '...'" :class=" getPagingClassName(item) " :to="normalize(urlPrefix+'/'+item)">{{ item }}</router-link>
             <span v-else class="pagination-ellipsis">...</span>
             </li>                
         </ul>
@@ -52,6 +52,9 @@ export default {
     },
     getNextClassName () {
       return this.currentPage < this.lastPage ? 'pagination-next' : 'pagination-next is-disabled'
+    },
+    normalize (path) {
+      return path.replace(/\/+/g,'/')
     }
   },
   computed: {
