@@ -24,7 +24,7 @@ export default {
       default: 1
     },
     lastPage: Number,    
-    displayPages: {
+    displayPage: {
       type: Number,
       default: 4
     },
@@ -59,7 +59,7 @@ export default {
   },
   computed: {
     pagingList () {
-      return paging(this.currentPage, this.lastPage, this.displayPages)
+      return paging(this.currentPage, this.lastPage, this.displayPage)
     },
     formatCurrentPage () {
       const currentPage = Number(this.currentPage)

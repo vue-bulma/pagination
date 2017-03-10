@@ -29,7 +29,7 @@ export default {
 }
 </script>
 ```
-## doc
+## Document
 
 |  props    |  required   |   default   |  optional    |  desc | 
 | ---- | ---- | ---- | ---- | ---- | ---- |
