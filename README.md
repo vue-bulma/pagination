@@ -15,7 +15,7 @@ $ yarn add vue-bulma-pagination --save
 ```vue
 <template>
   <div>
-    <pagination :urlPrefix="'/'" :currentPage="2" :pageLength="100" /> 
+    <pagination :urlPrefix="'/'" :currentPage="2" :lastPage="100" /> 
   </div>
 </template>
 
@@ -35,8 +35,8 @@ export default {
 | ---- | ---- | ---- | ---- | ---- | ---- |
 |  urlPrefix    |  `false`    |   '/'   |    |  urlPrefix for vue-router  |
 |  currentPage   |   `true`   |  1  |    |    |
-|  pageLength  |   `true`   |    |    | the last page number  |
-|  displayLength  |   `false`   |   4   |    | page number will to be displayed |
+|  lastPage  |   `true`   |    |    | the last page number  |
+|  displayPage  |   `false`   |   4   |    | page number will to be displayed |
 |  modifiers  |  `false`   |   ''   |'','is-centered','is-right' |  |
 
 
