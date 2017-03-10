@@ -23,8 +23,8 @@ export default {
       type: Number,
       default: 1
     },
-    pageLength: Number,    
-    displayLength: {
+    lastPage: Number,    
+    displayPages: {
       type: Number,
       default: 4
     },
@@ -51,12 +51,12 @@ export default {
       return this.currentPage !== 1 ? 'pagination-previous' : 'pagination-previous is-disabled'
     },
     getNextClassName () {
-      return this.currentPage < this.pageLength ? 'pagination-next' : 'pagination-next is-disabled'
+      return this.currentPage < this.lastPage ? 'pagination-next' : 'pagination-next is-disabled'
     }
   },
   computed: {
     pagingList () {
-      return paging(this.currentPage, this.pageLength, this.displayLength)
+      return paging(this.currentPage, this.lastPage, this.displayPages)
     },
     formatCurrentPage () {
       const currentPage = Number(this.currentPage)
