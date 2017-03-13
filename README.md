@@ -20,7 +20,7 @@ $ yarn add vue-bulma-pagination --save
 </template>
 
 <script>
-import Pagination from 'vue-bulma-pagination'
+import Pagination from 'vue-bulma-pagination/src/Pagination'
 
 export default {
   components: {
