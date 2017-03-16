@@ -35,8 +35,8 @@ export default {
   },
   methods: {
     getNavClassName () {
-      const optional = ['','is-centered','is-right']
-      if( optional.findIndex( item => item == this.modifiers.trim() ) >= 0 ){
+      var optional = ['','is-centered','is-right']
+      if(['','is-centered','is-right'].indexOf(this.modifiers) > 0){
         return 'pagination ' + this.modifiers
       } else {
         console.warn(" modifiers %s is not within the options ", this.modifiers, optional,
