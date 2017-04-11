@@ -1,23 +1,24 @@
 <template>
     <nav :class="getNavClassName()">
-        <router-link :class="getPreClassName()" :to="normalize(urlPrefix+'/'+(formatCurrentPage-1))" >Prev</router-link>
-        <router-link :class="getNextClassName()" :to="normalize(urlPrefix+'/'+(formatCurrentPage+1))">Next</router-link>
+        <router-link :class="getPreClassName()" :to="normalize(urlPrefix + (formatCurrentPage - 1))">Prev</router-link>
+        <router-link :class="getNextClassName()" :to="normalize(urlPrefix + (formatCurrentPage + 1))">Next</router-link>
         <ul class="pagination-list" >
             <li v-for="item in pagingList" >
-            <router-link v-if="item !== '...'" :class=" getPagingClassName(item) " :to="normalize(urlPrefix+'/'+item)">{{ item }}</router-link>
+            <router-link v-if="item !== '...'" :class="getPagingClassName(item)" :to="normalize(urlPrefix + item)">{{ item }}</router-link>
             <span v-else class="pagination-ellipsis">...</span>
             </li>                
         </ul>
     </nav>  
 </template>
+
 <script>
 import paging from './paging.js'
 export default {
   name: 'vue-bulma-pagination',
   props: {
     urlPrefix: {
-      type:String,
-      default:'/'
+      type: String,
+      default: '/'
     },
     currentPage: {
       type: Number,
@@ -35,9 +36,9 @@ export default {
   },
   methods: {
     getNavClassName () {
-      var optional = ['','is-centered','is-right']
-      if(['','is-centered','is-right'].indexOf(this.modifiers.trim()) >= 0){
-        return 'pagination ' + this.modifiers
+      var optional = ['', 'is-centered', 'is-right']
+      if(['', 'is-centered', 'is-right'].indexOf(this.modifiers.trim()) >= 0){
+        return 'pagination' + this.modifiers
       } else {
         console.warn(" modifiers %s is not within the options ", this.modifiers, optional,
         '\n see more detail https://github.com/vue-bulma/vue-bulma-pagination#doc')  
@@ -54,7 +55,7 @@ export default {
       return this.currentPage < this.lastPage ? 'pagination-next' : 'pagination-next is-disabled'
     },
     normalize (path) {
-      return path.replace(/\/+/g,'/')
+      return path.replace(/\/+/g, '/')
     }
   },
   computed: {
@@ -71,9 +72,9 @@ export default {
 
 <style >
 .pagination-list {
-    list-style : none ;    
+    list-style: none;    
 }
 .pagination-list li {
-    list-style : none ;
+    list-style: none;
 }
 </style>
