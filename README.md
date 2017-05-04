@@ -38,8 +38,8 @@ export default {
 | lastPage    | `true`   |         |                             | the last page number             |
 | displayPage | `false`  | 4       |                             | page number will to be displayed |
 | modifiers   | `false`  | ''      | '','is-centered','is-right' |                                  |
-| prev        | `false`  | ''      | Prev                        | text of `prev` button            |
-| next        | `false`  | ''      | Next                        | text of `next` button            |
+| prev        | `false`  | 'Prev'  |                             | text of `prev` button            |
+| next        | `false`  | 'Next'  |                             | text of `next` button            |
 
 
 ## Badges
