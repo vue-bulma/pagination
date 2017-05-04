@@ -31,15 +31,15 @@ export default {
 ```
 ## Document
 
-|  props    |  required   |   default   |  optional    |  desc | 
-| ---- | ---- | ---- | ---- | ---- | ---- |
-|  urlPrefix    |  `false`    |   '/'   |    |  urlPrefix for vue-router  |
-|  currentPage   |   `true`   |  1  |    |    |
-|  lastPage  |   `true`   |    |    | the last page number  |
-|  displayPage  |   `false`   |   4   |    | page number will to be displayed |
-|  modifiers  |  `false`   |   ''   |'','is-centered','is-right' |  |
-|  prev  |  `false`   |   ''   | Prev | text of `prev` button |
-|  next  |  `false`   |   ''   | Next | text of `next` button  |
+| props       | required | default | optional                    | desc                             |
+| ----------- | -------- | ------- | --------------------------- | -------------------------------- |
+| urlPrefix   | `false`  | '/'     |                             | urlPrefix for vue-router         |
+| currentPage | `true`   | 1       |                             |                                  |
+| lastPage    | `true`   |         |                             | the last page number             |
+| displayPage | `false`  | 4       |                             | page number will to be displayed |
+| modifiers   | `false`  | ''      | '','is-centered','is-right' |                                  |
+| prev        | `false`  | ''      | Prev                        | text of `prev` button            |
+| next        | `false`  | ''      | Next                        | text of `next` button            |
 
 
 ## Badges
