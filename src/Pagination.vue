@@ -1,7 +1,7 @@
 <template>
     <nav :class="getNavClassName()">
-        <router-link :class="getPreClassName()" :to="normalize(urlPrefix + (formatCurrentPage - 1))">Prev</router-link>
-        <router-link :class="getNextClassName()" :to="normalize(urlPrefix + (formatCurrentPage + 1))">Next</router-link>
+        <router-link :class="getPreClassName()" :to="normalize(urlPrefix + (formatCurrentPage - 1))">{{prev}}</router-link>
+        <router-link :class="getNextClassName()" :to="normalize(urlPrefix + (formatCurrentPage + 1))">{{next}}</router-link>
         <ul class="pagination-list" >
             <li v-for="item in pagingList" >
             <router-link v-if="item !== '...'" :class="getPagingClassName(item)" :to="normalize(urlPrefix + item)">{{ item }}</router-link>
@@ -32,7 +32,15 @@ export default {
     modifiers: {
       type: String,
       default: ''
-    }
+    },
+    prev: {
+      type: String,
+      default: 'Prev'
+    },
+    next: {
+      type: String,
+      default: 'Next'
+    },
   },
   methods: {
     getNavClassName () {
