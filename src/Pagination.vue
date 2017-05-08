@@ -1,14 +1,14 @@
 <template>
     <nav :class="getNavClassName()">
-        <router-link :class="getPreClassName()" :to="normalize(urlPrefix + (formatCurrentPage - 1))">{{prev}}</router-link>
-        <router-link :class="getNextClassName()" :to="normalize(urlPrefix + (formatCurrentPage + 1))">{{next}}</router-link>
+        <router-link :disabled="getPreDisabledAttr()" :class="'pagination-previous'" :to="normalize(urlPrefix + (formatCurrentPage - 1))">Prev</router-link>
+        <router-link :disabled="getNextDisabledAttr()" :class="'pagination-next'" :to="normalize(urlPrefix + (formatCurrentPage + 1))">Next</router-link>
         <ul class="pagination-list" >
             <li v-for="item in pagingList" >
             <router-link v-if="item !== '...'" :class="getPagingClassName(item)" :to="normalize(urlPrefix + item)">{{ item }}</router-link>
             <span v-else class="pagination-ellipsis">...</span>
-            </li>                
+            </li>
         </ul>
-    </nav>  
+    </nav>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
       type: Number,
       default: 1
     },
-    lastPage: Number,    
+    lastPage: Number,
     displayPage: {
       type: Number,
       default: 4
@@ -32,15 +32,7 @@ export default {
     modifiers: {
       type: String,
       default: ''
-    },
-    prev: {
-      type: String,
-      default: 'Prev'
-    },
-    next: {
-      type: String,
-      default: 'Next'
-    },
+    }
   },
   methods: {
     getNavClassName () {
@@ -49,18 +41,18 @@ export default {
         return 'pagination' + this.modifiers
       } else {
         console.warn(" modifiers %s is not within the options ", this.modifiers, optional,
-        '\n see more detail https://github.com/vue-bulma/vue-bulma-pagination#doc')  
+        '\n see more detail https://github.com/vue-bulma/vue-bulma-pagination#doc')
         return 'pagination'
-      }  
-    },  
+      }
+    },
     getPagingClassName (item) {
       return this.currentPage !== item ? 'pagination-link' : 'pagination-link is-current'
     },
-    getPreClassName () {
-      return this.currentPage !== 1 ? 'pagination-previous' : 'pagination-previous is-disabled'
+    getPreDisabledAttr () {
+      return this.currentPage !== 1 ? null : 'disabled'
     },
-    getNextClassName () {
-      return this.currentPage < this.lastPage ? 'pagination-next' : 'pagination-next is-disabled'
+    getNextDisabledAttr () {
+      return this.currentPage < this.lastPage ? null : 'disabled'
     },
     normalize (path) {
       return path.replace(/\/+/g, '/')
@@ -80,7 +72,7 @@ export default {
 
 <style >
 .pagination-list {
-    list-style: none;    
+    list-style: none;
 }
 .pagination-list li {
     list-style: none;
