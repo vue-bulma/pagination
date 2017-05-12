@@ -34,7 +34,7 @@ export default {
 | props       | required | default                   | optional                    | desc                             |
 | ----------- | -------- | --------------------------| --------------------------- | -------------------------------- |
 | urlPrefix   | `false`  | '/'                       |                             | urlPrefix for vue-router         |
-| urlBuilder  | `false`  | [urlBuilder](#urlbuilder) |                             | urlBuilder result will passed to vue-router link `to` prop        |
+| urlBuilder  | `false`  | [urlBuilder](#urlbuilderpagenum) |                             | urlBuilder result will passed to vue-router link `to` prop        |
 | currentPage | `true`   | 1                         |                             |                                  |
 | lastPage    | `true`   |                           |                             | the last page number             |
 | displayPage | `false`  | 4                         |                             | page number will to be displayed |
