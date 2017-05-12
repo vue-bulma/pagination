@@ -44,7 +44,7 @@ export default {
 
 
 ### urlBuilder(pageNum)
-Returned value will be passed to `router-link` as `:to` prop. See sample below:
+Returned value will be passed to `router-link` as `:to` prop. See example below:
 ```vue
 <template>
   <div class="container">
