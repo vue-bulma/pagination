@@ -1,14 +1,14 @@
 <template>
     <nav :class="getNavClassName()">
-        <router-link :class="getPreClassName()" :to="normalize(urlPrefix+'/'+(formatCurrentPage-1))" >{{prev}}</router-link>
-        <router-link :class="getNextClassName()" :to="normalize(urlPrefix+'/'+(formatCurrentPage+1))">{{next}}</router-link>
+        <router-link class="pagination-previous" :to="urlBuilder(prevPage)" :disabled="outOfRegion(formatCurrentPage - 1)">{{prev}}</router-link>
+        <router-link class="pagination-next" :to="urlBuilder(nextPage)"  :disabled="outOfRegion(formatCurrentPage + 1)">{{next}}</router-link>
         <ul class="pagination-list" >
             <li v-for="item in pagingList" >
-            <router-link v-if="item !== '...'" :class=" getPagingClassName(item) " :to="normalize(urlPrefix+'/'+item)">{{ item }}</router-link>
+            <router-link v-if="item !== '...'" :class="getPagingClassName(item)" :to="urlBuilder(item)">{{ item }}</router-link>
             <span v-else class="pagination-ellipsis">...</span>
-            </li>                
+            </li>
         </ul>
-    </nav>  
+    </nav>
 </template>
 <script>
 import paging from './paging.js'
@@ -19,11 +19,17 @@ export default {
       type:String,
       default:'/'
     },
+    urlBuilder: {
+      type: Function,
+      default (page) {
+        return this.normalize(`${this.urlPrefix}/${page}`)
+      }
+    },
     currentPage: {
       type: Number,
       default: 1
     },
-    lastPage: Number,    
+    lastPage: Number,
     displayPage: {
       type: Number,
       default: 4
@@ -48,18 +54,15 @@ export default {
         return 'pagination ' + this.modifiers
       } else {
         console.warn(" modifiers %s is not within the options ", this.modifiers, optional,
-        '\n see more detail https://github.com/vue-bulma/vue-bulma-pagination#doc')  
+        '\n see more detail https://github.com/vue-bulma/vue-bulma-pagination#doc')
         return 'pagination'
-      }  
-    },  
+      }
+    },
     getPagingClassName (item) {
       return this.currentPage !== item ? 'pagination-link' : 'pagination-link is-current'
     },
-    getPreClassName () {
-      return this.currentPage !== 1 ? 'pagination-previous' : 'pagination-previous is-disabled'
-    },
-    getNextClassName () {
-      return this.currentPage < this.lastPage ? 'pagination-next' : 'pagination-next is-disabled'
+    outOfRegion (page) {
+      return page < 1 || page > this.lastPage
     },
     normalize (path) {
       return path.replace(/\/+/g,'/')
@@ -72,6 +75,12 @@ export default {
     formatCurrentPage () {
       const currentPage = Number(this.currentPage)
       return currentPage > 0 ? currentPage : 1
+    },
+    prevPage () {
+      return Math.max(this.formatCurrentPage - 1, 1)
+    },
+    nextPage () {
+      return Math.min(this.formatCurrentPage + 1, this.lastPage)
     }
   }
 }
@@ -79,7 +88,7 @@ export default {
 
 <style >
 .pagination-list {
-    list-style : none ;    
+    list-style : none ;
 }
 .pagination-list li {
     list-style : none ;
